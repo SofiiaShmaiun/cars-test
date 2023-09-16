@@ -1,48 +1,45 @@
-# Додаток для оренди автомобілів
+# Car rental application
 
-Це простий веб-додаток для оренди автомобілів, який надає інформацію про послуги
-компанії та дозволяє користувачам переглядати каталог автомобілів і додавати
-обрані автомобілі до улюблених оголошень.
+It is a simple web application for car rental that provides information about
+the services company and allows users to browse the car catalog and add selected
+cars to favorite ads.
 
-## Вміст
+## Content
 
-- [Опис](#опис)
-- [Використання](#використання)
-- [Додаткові функції](#додаткові-функції)
-- [Ліцензія](#ліцензія)
+- [Description](#description)
+- [Usage](#usage)
 
-## Опис
+## Description
 
-Цей додаток розроблений для компанії, що надає послуги оренди автомобілів в
-Україні. Додаток має наступні сторінки:
+This app is designed for a car rental company in Ukraine. The application has
+the following pages:
 
-1. **Домашня сторінка:** Загальний опис послуг, що надає компанія.
+1. **Home page:** General description of services provided by the company.
 
-2. **Каталог автівок:** Сторінка, на якій користувач може переглядати доступні
-   автомобілі різної комплектації та фільтрувати їх за маркою, ціною за годину
-   оренди та пробігом.
+2. **Catalog of cars:** A page where the user can view the available cars
+   of various configurations and filter them by brand, price per hour rent and
+   mileage.
 
-3. **Улюблені оголошення:** Сторінка, де користувач може додавати автомобілі до
-   свого списку улюблених оголошень.
+3. **Favorite Ads:** A page where the user can add cars to your list of favorite
+   ads.
 
-## Використання
+## Usage
 
-### Домашня сторінка
+### Homepage
 
-На цій сторінці користувачі можуть:
+On this page, users can:
 
-- [ ] Ознайомитися з загальним описом послуг компанії.
+- [ ] Get acquainted with the general description of the company's services.
 
-### Каталог автівок
+### Catalog of cars
 
-На цій сторінці користувачі можуть:
+On this page, users can:
 
-- [ ] Переглядати каталог автомобілів різної комплектації.
-- [ ] Використовувати фільтри для пошуку автомобілів за маркою, ціною за годину
-      оренди та пробігом.
+- [ ] View the catalog of cars of various configurations.
+- [ ] Use filters to search for cars by brand, price per hour rent and mileage.
 
-### Улюблені оголошення
+### Favorite ads
 
-На цій сторінці користувачі можуть:
+On this page, users can:
 
-- [ ] Додавати автомобілі до свого списку улюблених оголошень.
+- [ ] Add cars to your list of favorite ads.
