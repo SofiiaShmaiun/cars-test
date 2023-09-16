@@ -1,0 +1,202 @@
+label {
+  color: #8a8a89;
+  font-size: 14px;
+  line-height: calc(18 / 14);
+}
+
+input {
+  height: 48px;
+  background-color: #f7f7fb;
+  border-radius: 14px;
+  outline: none;
+  border: none;
+
+  &::placeholder {
+    color: var(--text-primary-color);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(20 / 18);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 18px;
+  height: 100px;
+  padding: 0 290px;
+}
+
+.searchInput {
+  width: 224px;
+}
+
+.searchIcon {
+  fill: none;
+  stroke: black;
+  position: relative;
+
+  top: -33px;
+  left: 194px;
+
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rotateIcon {
+  fill: none;
+  stroke: black;
+  position: relative;
+
+  top: -33px;
+  left: 194px;
+
+  cursor: pointer;
+
+  transform: rotate(180deg);
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  top: -19px;
+  left: 0px;
+
+  width: 224px;
+  height: 272px;
+  padding: 14px 18px;
+
+  color: var(--border-color);
+  font-size: 16px;
+  line-height: calc(20 / 16);
+
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+
+  z-index: 999;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 130px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(18, 20, 23, 0.05);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    background-color: rgba(18, 20, 23, 0.05);
+    border-radius: 10px;
+  }
+}
+
+.option {
+  color: rgba(18, 20, 23, 0.2);
+  font-size: 16px;
+  line-height: calc(20 / 16);
+
+  cursor: pointer;
+
+  &:hover {
+    color: var(--text-primary-color);
+  }
+}
+
+.priceInput {
+  width: 125px;
+}
+
+.searchPriceIcon {
+  position: relative;
+  top: -34px;
+  left: 98px;
+
+  fill: none;
+  stroke: black;
+
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.rotatePriceIcon {
+  position: relative;
+  top: -34px;
+  left: 98px;
+
+  fill: none;
+  stroke: black;
+
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.dropDownPrice {
+  position: relative;
+  top: -19px;
+  left: 0px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+
+  width: 125px;
+  height: 188px;
+  padding: 14px 18px;
+
+  color: rgba(18, 20, 23, 0.2);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0px 4px 36px 0px rgba(0, 0, 0, 0.02);
+
+  z-index: 999;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 130px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(18, 20, 23, 0.05);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    background-color: rgba(18, 20, 23, 0.05);
+    border-radius: 10px;
+  }
+}
+
+.inputBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.rangeInputs {
+  display: flex;
+  flex-direction: row;
+}
+
+.toValue {
+  border-radius: 0px 14px 14px 0px;
+}
+
+.fromValue {
+  border-radius: 14px 0px 0px 14px;
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+}
+
+.searchButton {
+  min-width: 136px;
+  margin-top: 19px;
+}
