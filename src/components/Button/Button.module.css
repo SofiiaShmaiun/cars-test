@@ -1,0 +1,14 @@
+.button {
+  height: 44px;
+  border-radius: 12px;
+  background: var(--primary-accent-color);
+
+  color: var(--primary-white-color);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+
+  &:hover {
+    background-color: var(--primary-accent-color-hover);
+  }
+}
