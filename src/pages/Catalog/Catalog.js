@@ -1,41 +1,41 @@
 import CardsList from 'components/CardsList/CardsList';
 import { useEffect, useState } from 'react';
 import styles from './Catalog.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFilteredCars } from '../../redux/selectors';
+import { fetchCars } from '../../redux/operations';
 
 export default function Catalog() {
-  const [adverts, setAdverts] = useState([]);
-  const [loadMoreButton, setLoadMoreButton] = useState(true);
+  const dispatch = useDispatch();
+
+  const [loadMoreButton, setLoadMoreButton] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const BASE_URL = 'https://648b429517f1536d65eab001.mockapi.io/adverts';
-
   useEffect(() => {
-    fetch(BASE_URL)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error(`Ошибка сети: ${response.status}`);
-        }
-        return response.json();
-      })
-      .then(data => {
-        setAdverts(data);
-      })
-      .catch(error => {
-        console.error('Произошла ошибка при загрузке данных:', error);
-      });
-  }, []);
+    dispatch(fetchCars());
+  }, [dispatch]);
+
+  const filteredCars = useSelector(selectFilteredCars);
 
   const loadMore = () => {
     setCurrentPage(currentPage + 1);
 
-    if (currentPage * 8 >= 35) {
+    if (currentPage * 8 >= filteredCars.length) {
       setLoadMoreButton(false);
     }
   };
 
+  useEffect(() => {
+    if (filteredCars.length > 8) {
+      setLoadMoreButton(true);
+    } else {
+      setLoadMoreButton(false);
+    }
+  }, [filteredCars]);
+
   return (
     <div>
-      <CardsList adverts={adverts} currentPage={currentPage}>
+      <CardsList adverts={filteredCars} currentPage={currentPage}>
         {loadMoreButton && (
           <button onClick={loadMore} className={styles.loadMoreButton}>
             Load more

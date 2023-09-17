@@ -7,12 +7,6 @@ import { Filter } from 'components/Filter/Filter';
 export default function CardsList({ adverts, children, currentPage }) {
   const [isOpenModal, setIsOpenModal] = useState();
   const [modalData, setModalData] = useState(null);
-  const [filterData, setFilterData] = useState({
-    price: '',
-    brand: '',
-    fromValue: '',
-    toValue: '',
-  });
 
   const handleOpenModal = () => {
     setIsOpenModal(!isOpenModal);
@@ -24,13 +18,12 @@ export default function CardsList({ adverts, children, currentPage }) {
 
   return (
     <section className={styles.container}>
-      <Filter filterData={filterData} setFilterData={setFilterData} />
+      <Filter />
       <Cards
         handleClick={() => handleOpenModal()}
         onData={handleCardsData}
         currentPage={currentPage}
         adverts={adverts}
-        filterData={filterData}
       />
       {isOpenModal && <Modal openModal={setIsOpenModal} car={modalData} />}
       {children}

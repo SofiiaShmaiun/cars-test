@@ -1,10 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { updateFilter } from 'redux/slices';
+
 import styles from './Filter.module.css';
 import sprite from '../../img/sprite.svg';
 import makes from '../makes.json';
 import { Button } from 'components/Button/Button';
 
-export const Filter = ({ setFilterData }) => {
+export const Filter = () => {
   const [isListVisible, setBrandsListVisible] = useState(false);
   const [isPricesListVisible, setPricesListVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -14,32 +17,34 @@ export const Filter = ({ setFilterData }) => {
     toValue: '',
   });
 
+  const dispatch = useDispatch();
+
   const handleInputChange = e => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+
+    dispatch(updateFilter(formData));
   };
 
   const handleSubmit = e => {
     e.preventDefault();
-    setFilterData(formData);
+    dispatch(updateFilter(formData));
+    setBrandsListVisible(false);
+    setPricesListVisible(false);
   };
 
   const handleBrandClick = car => {
-    setFormData({
-      ...formData,
-      brand: car,
-    });
+    setFormData({ ...formData, brand: car });
+    dispatch(updateFilter({ ...formData, brand: car }));
     setBrandsListVisible(false);
   };
 
   const handlePriceClick = price => {
-    setFormData({
-      ...formData,
-      price: price,
-    });
+    setFormData({ ...formData, price: price });
+    dispatch(updateFilter({ ...formData, price: price }));
     setPricesListVisible(false);
   };
 
@@ -62,6 +67,7 @@ export const Filter = ({ setFilterData }) => {
             onChange={handleInputChange}
             className={styles.searchInput}
             autoComplete="off"
+            onFocus={() => setBrandsListVisible(true)}
           />
           <svg
             width="20"
@@ -90,7 +96,7 @@ export const Filter = ({ setFilterData }) => {
       </div>
 
       <div>
-        <label htmlFor="priceInput">Price/ 1 hour</label>
+        <label htmlFor="priceInput">Price / 1 hour</label>
         <div>
           <input
             type="text"
@@ -101,6 +107,7 @@ export const Filter = ({ setFilterData }) => {
             placeholder="To $"
             className={styles.priceInput}
             autoComplete="off"
+            onFocus={() => setPricesListVisible(true)}
           ></input>
           <svg
             width="20"
@@ -132,7 +139,7 @@ export const Filter = ({ setFilterData }) => {
         <label htmlFor="mileageInput">Car mileage / km</label>
         <div className={styles.rangeInputs}>
           <input
-            type="number"
+            type="text"
             id="mileageInput"
             name="fromValue"
             value={formData.fromValue}
@@ -142,7 +149,7 @@ export const Filter = ({ setFilterData }) => {
             autoComplete="off"
           ></input>
           <input
-            type="number"
+            type="text"
             id="mileageInput"
             name="toValue"
             value={formData.toValue}
