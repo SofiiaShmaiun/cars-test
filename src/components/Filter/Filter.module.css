@@ -26,6 +26,9 @@ input {
   gap: 18px;
   height: 100px;
   padding: 0 290px;
+
+  width: 857px;
+  margin: 0 auto;
 }
 
 .searchInput {
