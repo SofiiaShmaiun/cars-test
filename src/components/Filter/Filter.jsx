@@ -27,18 +27,6 @@ export const Filter = ({ setFilterData }) => {
     setFilterData(formData);
   };
 
-  // const handleSearchByBrand = e => {
-  //   formData.brand = e.target.value;
-  //   const filteredMakes = makes.filter(car =>
-  //     car.toLowerCase().includes(inputValue.toLowerCase())
-  //   );
-  //   if (inputValue === '') {
-  //     setDropdownCars(makes);
-  //   }
-  //   setDropdownCars(filteredMakes);
-  //   setBrandsListVisible(true);
-  // };
-
   const handleBrandClick = car => {
     setFormData({
       ...formData,
@@ -46,11 +34,6 @@ export const Filter = ({ setFilterData }) => {
     });
     setBrandsListVisible(false);
   };
-
-  // const handleSearchByPrice = e => {
-  //   formData.price = e.target.value;
-  //   setPricesListVisible(true);
-  // };
 
   const handlePriceClick = price => {
     setFormData({
@@ -171,7 +154,11 @@ export const Filter = ({ setFilterData }) => {
         </div>
       </div>
 
-      <Button type="submit" additionalStyles={styles.searchButton}>
+      <Button
+        type="submit"
+        additionalStyles={styles.searchButton}
+        onClick={handleSubmit}
+      >
         Search
       </Button>
     </form>
