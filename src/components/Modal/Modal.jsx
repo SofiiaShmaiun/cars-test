@@ -52,63 +52,67 @@ const Modal = ({ openModal, car }) => {
             className={styles.modalImage}
           />
         </div>
-        <div className={styles.title}>
-          <p>
-            {car.make} <span className={styles.model}>{car.model},</span>{' '}
-            {car.year}
-          </p>
+        <div className={styles.test}>
+          <div className={styles.title}>
+            <p>
+              {car.make} <span className={styles.model}>{car.model},</span>{' '}
+              {car.year}
+            </p>
+          </div>
+          <div className={styles.information}>
+            <ul className={styles.informationList}>
+              <li>{getAddress(car.address, 1)}</li>
+              <li>{getAddress(car.address, 2)}</li>
+              <li>Id: {car.id}</li>
+              <li>Year: {car.year}</li>
+              <li>Type: {car.type}</li>
+            </ul>
+            <ul className={styles.informationList}>
+              <li>Fuel Consumption: {car.fuelConsumption}</li>
+              <li>Engine Size: {car.engineSize}</li>
+            </ul>
+          </div>
+          <p className={styles.description}>{car.description}</p>
+          <p className={styles.titles}>Accessories and functionalities:</p>
+          <div className={styles.accessoriesFunctionalities}>
+            <ul>
+              {car.accessories.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+            <ul>
+              {car.functionalities.map(item => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <p className={styles.titles}>Rental Conditions: </p>
+          <div className={styles.conditions}>
+            <ul>
+              <li>
+                Minimum age: <span>{todayYear.getFullYear() - car.year}</span>
+              </li>
+              <li>Valid driver's license</li>
+            </ul>
+            <ul>
+              <li>Security deposite required </li>
+              <li>
+                Mileage:{' '}
+                <span>
+                  {car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                </span>
+              </li>
+              <li>
+                Price: <span>{car.rentalPrice}</span>
+              </li>
+            </ul>
+          </div>
+          <a href="tel:+380730000000" target="_blank" rel="noreferrer noopener">
+            <Button additionalStyles={styles.learnMoreButton}>
+              Rental car
+            </Button>
+          </a>
         </div>
-        <div className={styles.information}>
-          <ul className={styles.informationList}>
-            <li>{getAddress(car.address, 1)}</li>
-            <li>{getAddress(car.address, 2)}</li>
-            <li>Id: {car.id}</li>
-            <li>Year: {car.year}</li>
-            <li>Type: {car.type}</li>
-          </ul>
-          <ul className={styles.informationList}>
-            <li>Fuel Consumption: {car.fuelConsumption}</li>
-            <li>Engine Size: {car.engineSize}</li>
-          </ul>
-        </div>
-        <p className={styles.description}>{car.description}</p>
-        <p className={styles.titles}>Accessories and functionalities:</p>
-        <div className={styles.accessoriesFunctionalities}>
-          <ul>
-            {car.accessories.map(item => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <ul>
-            {car.functionalities.map(item => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </div>
-        <p className={styles.titles}>Rental Conditions: </p>
-        <div className={styles.conditions}>
-          <ul>
-            <li>
-              Minimum age: <span>{todayYear.getFullYear() - car.year}</span>
-            </li>
-            <li>Valid driver's license</li>
-          </ul>
-          <ul>
-            <li>Security deposite required </li>
-            <li>
-              Mileage:{' '}
-              <span>
-                {car.mileage.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-              </span>
-            </li>
-            <li>
-              Price: <span>{car.rentalPrice}</span>
-            </li>
-          </ul>
-        </div>
-        <a href="tel:+380730000000" target="_blank" rel="noreferrer noopener">
-          <Button additionalStyles={styles.learnMoreButton}>Rental car</Button>
-        </a>
       </div>
     </div>,
     modalRoot

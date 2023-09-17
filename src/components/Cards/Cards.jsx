@@ -18,17 +18,22 @@ export default function Cards({
   };
 
   const filteredCars = adverts.filter(product => {
-    return (
+    const brandMatch =
       !filterData.brand ||
-      (product.make.toLowerCase().includes(filterData.brand.toLowerCase()) &&
-        (!parseInt(filterData.price) ||
-          parseInt(product.rentalPrice.replace('$', '')) <=
-            parseInt(filterData.price)) &&
-        !parseInt(filterData.fromValue)) ||
-      (parseInt(filterData.fromValue) <= parseInt(product.mileage) &&
-        !parseInt(filterData.toValue)) ||
-      parseInt(product.mileage) <= parseInt(filterData.toValue)
-    );
+      product.make.toLowerCase().includes(filterData.brand.toLowerCase());
+    const priceMatch =
+      !parseInt(filterData.price) ||
+      parseInt(product.rentalPrice.replace('$', '')) <=
+        parseInt(filterData.price);
+    const mileageMatchMin =
+      !parseInt(filterData.fromValue) ||
+      parseInt(filterData.fromValue) <= parseInt(product.mileage);
+
+    const mileageMatchMax =
+      !parseInt(filterData.toValue) ||
+      parseInt(product.mileage) <= parseInt(filterData.toValue);
+
+    return brandMatch && priceMatch && mileageMatchMin && mileageMatchMax;
   });
 
   return (

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './CardsList.module.css';
 import Cards from 'components/Cards/Cards';
 import Modal from '../../components/Modal/Modal.jsx';
-import { Button } from 'components/Button/Button';
 import { Filter } from 'components/Filter/Filter';
 
 export default function CardsList({ adverts }) {

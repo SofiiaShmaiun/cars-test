@@ -5,7 +5,6 @@ import makes from '../makes.json';
 import { Button } from 'components/Button/Button';
 
 export const Filter = ({ setFilterData }) => {
-  const [dropdownCars, setDropdownCars] = useState(makes);
   const [isListVisible, setBrandsListVisible] = useState(false);
   const [isPricesListVisible, setPricesListVisible] = useState(false);
   const [formData, setFormData] = useState({
@@ -28,30 +27,36 @@ export const Filter = ({ setFilterData }) => {
     setFilterData(formData);
   };
 
-  const handleSearchByBrand = e => {
-    const inputValue = e.target.value;
-    const filteredMakes = makes.filter(car =>
-      car.toLowerCase().includes(inputValue.toLowerCase())
-    );
-    if (inputValue === '') {
-      setDropdownCars(makes);
-    }
-    setDropdownCars(filteredMakes);
-    setBrandsListVisible(true);
-  };
+  // const handleSearchByBrand = e => {
+  //   formData.brand = e.target.value;
+  //   const filteredMakes = makes.filter(car =>
+  //     car.toLowerCase().includes(inputValue.toLowerCase())
+  //   );
+  //   if (inputValue === '') {
+  //     setDropdownCars(makes);
+  //   }
+  //   setDropdownCars(filteredMakes);
+  //   setBrandsListVisible(true);
+  // };
 
   const handleBrandClick = car => {
-    formData.brand = car;
+    setFormData({
+      ...formData,
+      brand: car,
+    });
     setBrandsListVisible(false);
   };
 
-  const handleSearchByPrice = e => {
-    formData.price = e.target.value;
-    setPricesListVisible(true);
-  };
+  // const handleSearchByPrice = e => {
+  //   formData.price = e.target.value;
+  //   setPricesListVisible(true);
+  // };
 
   const handlePriceClick = price => {
-    formData.price = price;
+    setFormData({
+      ...formData,
+      price: price,
+    });
     setPricesListVisible(false);
   };
 
@@ -61,16 +66,17 @@ export const Filter = ({ setFilterData }) => {
   );
 
   return (
-    <form className={styles.form}>
+    <form className={styles.form} onSubmit={handleSubmit}>
       <div>
         <label htmlFor="carSearch">Car brand</label>
         <div>
           <input
             type="text"
             id="carSearch"
+            name="brand"
             placeholder="Enter the text"
             value={formData.brand}
-            onChange={(handleSearchByBrand, handleInputChange)}
+            onChange={handleInputChange}
             className={styles.searchInput}
             autoComplete="off"
           />
@@ -87,7 +93,7 @@ export const Filter = ({ setFilterData }) => {
         </div>
         {isListVisible && (
           <ul className={styles.dropDown}>
-            {dropdownCars.map(car => (
+            {makes.map(car => (
               <li
                 key={car}
                 onClick={() => handleBrandClick(car)}
@@ -108,7 +114,7 @@ export const Filter = ({ setFilterData }) => {
             id="priceInput"
             name="price"
             value={formData.price}
-            onChange={(handleSearchByPrice, handleInputChange)}
+            onChange={handleInputChange}
             placeholder="To $"
             className={styles.priceInput}
             autoComplete="off"
@@ -165,11 +171,7 @@ export const Filter = ({ setFilterData }) => {
         </div>
       </div>
 
-      <Button
-        type="submit"
-        onClick={handleSubmit}
-        additionalStyles={styles.searchButton}
-      >
+      <Button type="submit" additionalStyles={styles.searchButton}>
         Search
       </Button>
     </form>
