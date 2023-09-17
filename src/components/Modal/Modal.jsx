@@ -52,7 +52,6 @@ const Modal = ({ openModal, car }) => {
             className={styles.modalImage}
           />
         </div>
-        <div className={styles.test}>
           <div className={styles.title}>
             <p>
               {car.make} <span className={styles.model}>{car.model},</span>{' '}
@@ -113,7 +112,6 @@ const Modal = ({ openModal, car }) => {
             </Button>
           </a>
         </div>
-      </div>
     </div>,
     modalRoot
   );
