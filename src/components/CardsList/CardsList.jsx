@@ -4,11 +4,9 @@ import Cards from 'components/Cards/Cards';
 import Modal from '../../components/Modal/Modal.jsx';
 import { Filter } from 'components/Filter/Filter';
 
-export default function CardsList({ adverts }) {
+export default function CardsList({ adverts, children, currentPage }) {
   const [isOpenModal, setIsOpenModal] = useState();
   const [modalData, setModalData] = useState(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [loadMoreButton, setLoadMoreButton] = useState(true);
   const [filterData, setFilterData] = useState({
     price: '',
     brand: '',
@@ -20,20 +18,8 @@ export default function CardsList({ adverts }) {
     setIsOpenModal(!isOpenModal);
   };
 
-  const handleCardsData = (item, showLoadMoreButton) => {
+  const handleCardsData = item => {
     setModalData(item);
-
-    if (showLoadMoreButton) {
-      setLoadMoreButton(true);
-    }
-  };
-
-  const loadMore = () => {
-    setCurrentPage(currentPage + 1);
-
-    if (currentPage * 8 >= 50) {
-      setLoadMoreButton(false);
-    }
   };
 
   return (
@@ -47,11 +33,7 @@ export default function CardsList({ adverts }) {
         filterData={filterData}
       />
       {isOpenModal && <Modal openModal={setIsOpenModal} car={modalData} />}
-      {loadMoreButton && (
-        <button onClick={loadMore} className={styles.loadMoreButton}>
-          Load more
-        </button>
-      )}
+      {children}
     </section>
   );
 }
