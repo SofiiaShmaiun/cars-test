@@ -47,7 +47,7 @@ const Modal = ({ openModal, car }) => {
         </button>
         <div className={styles.imageWrapper}>
           <img
-            src={car.img}
+            src={car.img || car.photoLink}
             alt={car.description}
             className={styles.modalImage}
           />
