@@ -17,7 +17,7 @@ export default function CardsList({ adverts, children, currentPage }) {
   };
 
   return (
-    <section className={styles.container}>
+    <main className={styles.container}>
       <Filter />
       <Cards
         handleClick={() => handleOpenModal()}
@@ -27,6 +27,6 @@ export default function CardsList({ adverts, children, currentPage }) {
       />
       {isOpenModal && <Modal openModal={setIsOpenModal} car={modalData} />}
       {children}
-    </section>
+    </main>
   );
 }

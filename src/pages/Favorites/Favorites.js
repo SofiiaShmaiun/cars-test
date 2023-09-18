@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useFavorites } from '../../FavoriteContext';
 import Cards from 'components/Cards/Cards';
 import Modal from 'components/Modal/Modal';
+import styles from './Favorites.module.css';
 
 export default function Favorites() {
   const { favorites } = useFavorites();
@@ -18,14 +19,19 @@ export default function Favorites() {
   };
 
   return (
-    <section style={{ paddingBottom: '100px' }}>
-      <Cards
-        handleClick={() => handleOpenModal()}
-        onData={handleCardsData}
-        currentPage={1000}
-        adverts={favorites}
-      />
+    <main style={{ paddingBottom: '100px' }}>
+      {favorites.length > 0 ? (
+        <Cards
+          handleClick={() => handleOpenModal()}
+          onData={handleCardsData}
+          currentPage={1000}
+          adverts={favorites}
+        />
+      ) : (
+        <h2 className={styles.text}>There is no favorites yet&#129335;</h2>
+      )}
+
       {isOpenModal && <Modal openModal={setIsOpenModal} car={modalData} />}
-    </section>
+    </main>
   );
 }

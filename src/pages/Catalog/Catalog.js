@@ -34,14 +34,12 @@ export default function Catalog() {
   }, [filteredCars]);
 
   return (
-    <div>
-      <CardsList adverts={filteredCars} currentPage={currentPage}>
-        {loadMoreButton && (
-          <button onClick={loadMore} className={styles.loadMoreButton}>
-            Load more
-          </button>
-        )}
-      </CardsList>
-    </div>
+    <CardsList adverts={filteredCars} currentPage={currentPage}>
+      {loadMoreButton && (
+        <button onClick={loadMore} className={styles.loadMoreButton}>
+          Load more
+        </button>
+      )}
+    </CardsList>
   );
 }
