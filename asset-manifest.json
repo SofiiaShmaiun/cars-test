@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/cars-test/static/css/main.fd22ce30.css",
-    "main.js": "/cars-test/static/js/main.2d987583.js",
+    "main.js": "/cars-test/static/js/main.5892fc42.js",
     "static/css/290.c77b953d.chunk.css": "/cars-test/static/css/290.c77b953d.chunk.css",
     "static/js/290.62333dba.chunk.js": "/cars-test/static/js/290.62333dba.chunk.js",
     "static/css/947.78e08873.chunk.css": "/cars-test/static/css/947.78e08873.chunk.css",
-    "static/js/947.0cd457b4.chunk.js": "/cars-test/static/js/947.0cd457b4.chunk.js",
+    "static/js/947.fc527c9c.chunk.js": "/cars-test/static/js/947.fc527c9c.chunk.js",
     "static/css/497.27db6d56.chunk.css": "/cars-test/static/css/497.27db6d56.chunk.css",
-    "static/js/497.1197b7a3.chunk.js": "/cars-test/static/js/497.1197b7a3.chunk.js",
+    "static/js/497.c37c1900.chunk.js": "/cars-test/static/js/497.c37c1900.chunk.js",
     "static/media/sprite.svg": "/cars-test/static/media/sprite.76e2dab478f05328ce92555f00a8836b.svg",
     "index.html": "/cars-test/index.html",
     "main.fd22ce30.css.map": "/cars-test/static/css/main.fd22ce30.css.map",
-    "main.2d987583.js.map": "/cars-test/static/js/main.2d987583.js.map",
+    "main.5892fc42.js.map": "/cars-test/static/js/main.5892fc42.js.map",
     "290.c77b953d.chunk.css.map": "/cars-test/static/css/290.c77b953d.chunk.css.map",
     "290.62333dba.chunk.js.map": "/cars-test/static/js/290.62333dba.chunk.js.map",
     "947.78e08873.chunk.css.map": "/cars-test/static/css/947.78e08873.chunk.css.map",
-    "947.0cd457b4.chunk.js.map": "/cars-test/static/js/947.0cd457b4.chunk.js.map",
+    "947.fc527c9c.chunk.js.map": "/cars-test/static/js/947.fc527c9c.chunk.js.map",
     "497.27db6d56.chunk.css.map": "/cars-test/static/css/497.27db6d56.chunk.css.map",
-    "497.1197b7a3.chunk.js.map": "/cars-test/static/js/497.1197b7a3.chunk.js.map"
+    "497.c37c1900.chunk.js.map": "/cars-test/static/js/497.c37c1900.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fd22ce30.css",
-    "static/js/main.2d987583.js"
+    "static/js/main.5892fc42.js"
   ]
 }
